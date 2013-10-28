@@ -19,6 +19,11 @@
   <%= @event.end_at %>
 </p>
 
+<p>
+  <b>Room:</b>
+  <%= @event.room %>
+</p>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

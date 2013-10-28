@@ -6,6 +6,7 @@
     <th>Organization</th>
     <th>Start at</th>
     <th>End at</th>
+    <th>Room</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +18,8 @@
     <td><%= event.organization %></td>
     <td><%= event.start_at %></td>
     <td><%= event.end_at %></td>
+    <td><%= event.room %></td>
+
     <td><%= link_to 'Show', event %></td>
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
