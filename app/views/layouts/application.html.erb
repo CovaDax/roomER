@@ -7,6 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container">
+				<%= link_to "Calendar", root_path %>
+				<ul class="nav">
+					<li><%= link_to "View Calendar", calendar_path %></li>
+					<li><%= link_to "New Event", new_event_path %></li>
+				</ul>
+				<ul class="nav pull-right">
+					<li><a href="#">Log in</a></li>
+					<li><a href="#">Register</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 
 <%= yield %>
 
