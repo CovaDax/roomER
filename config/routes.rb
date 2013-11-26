@@ -1,4 +1,6 @@
 CalTest::Application.routes.draw do
+  devise_for :models
+
   resources :events
 
 
