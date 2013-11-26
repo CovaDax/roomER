@@ -21,7 +21,9 @@
 
 <p>
   <b>Room:</b>
-  <%= @event.room %>
+	<% unless @event.room.nil? %>
+  <%= @event.room.name %>
+  <% end %>
 </p>
 
 

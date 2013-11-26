@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  building: MyString
+  number: 1
+  maxOccupancy: 1
+
+two:
+  building: MyString
+  number: 1
+  maxOccupancy: 1
