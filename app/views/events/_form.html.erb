@@ -27,7 +27,7 @@
     </div>
     <div class="field">    
     <%= f.label :room_id %><br />
-	 <%= f.collection_select :room_id, Room.all, :id, :name %>
+	 <%= f.collection_select :room_id, Room.all, :id, :name, {:prompt => 'select room'} %>
 	 </div>
     <div class="actions">
       <%= f.submit %>

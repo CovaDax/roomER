@@ -4,4 +4,7 @@ class Event < ActiveRecord::Base
   has_event_calendar
   #has_one :room      #which is better, has one or belongs to?
   belongs_to :room
+  
+  validates :name, :organization, :room_id,  presence: true
+  
 end
