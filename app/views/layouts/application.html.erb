@@ -10,7 +10,9 @@
 	<div class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-inner">
 			<div class="container">
-				<%= link_to "Calendar", root_path %>
+				<ul>
+					<li class="brand"><%= link_to "Calendar", root_path %></li>
+				</ul>
 				<ul class="nav">
 					<li><%= link_to "View Calendar", calendar_path %></li>
 					<li><%= link_to "New Event", new_event_path %></li>
@@ -22,6 +24,9 @@
 			</div>
 		</div>
 	</div>
+
+	<p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
 <%= yield %>
 
