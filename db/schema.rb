@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20131126115733) do
-=======
 ActiveRecord::Schema.define(:version => 20131126160641) do
->>>>>>> c038493a11e309f79d227fc441702ccd41f6474d
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -25,15 +21,6 @@ ActiveRecord::Schema.define(:version => 20131126160641) do
     t.datetime "updated_at",   :null => false
     t.string   "organization"
     t.integer  "room_id"
-  end
-
-  create_table "rooms", :force => true do |t|
-    t.string   "building"
-    t.integer  "number"
-    t.integer  "maxOccupancy"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "event_id"
   end
 
   create_table "models", :force => true do |t|
@@ -53,5 +40,14 @@ ActiveRecord::Schema.define(:version => 20131126160641) do
 
   add_index "models", ["email"], :name => "index_models_on_email", :unique => true
   add_index "models", ["reset_password_token"], :name => "index_models_on_reset_password_token", :unique => true
+
+  create_table "rooms", :force => true do |t|
+    t.string   "building"
+    t.integer  "number"
+    t.integer  "maxOccupancy"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "event_id"
+  end
 
 end
