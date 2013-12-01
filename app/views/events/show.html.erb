@@ -26,6 +26,12 @@
   <% end %>
 </p>
 
+<p>
+  <b>Approved:</b>
+	<% unless @event.room.nil? %>
+  <%= @event.approved %>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

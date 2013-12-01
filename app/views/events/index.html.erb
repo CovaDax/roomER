@@ -7,6 +7,7 @@
     <th>Start at</th>
     <th>End at</th>
     <th>Room</th>
+    <th>Approved</th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,6 +24,9 @@
     <% unless event.room.nil? %>
     <%= event.room.name %>
 	    <% end %>
+	</td>
+    <td>  
+    <%= event.approved %>
 	</td>
 
     <td><%= link_to 'Show', event %></td>
