@@ -82,7 +82,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "3daf0fd6d452c3952351aacf5b37bb723dce2dbd31b5acdde43567e05ed6259b394b226e941ae3f319c78e7a2327b22c51d58f22a9938f5661c8ff404383b211"
+  # config.pepper = "e55601b21d113afda79770faca9e1d382a8f29c0d4185591950e26da7fdbc8a3c435f57ba8dddf2ac92a41801723573f3d7f3cb2709a13c32d8bc38749dd0dd9"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -194,7 +194,7 @@ Devise.setup do |config|
 
   # Set this configuration to false if you want /users/sign_out to sign out
   # only the current scope. By default, Devise signs out all scopes.
-  # config.sign_out_all_scopes = true
+  config.sign_out_all_scopes = false
 
   # ==> Navigation configuration
   # Lists the formats that should be treated as navigational. Formats like
@@ -208,7 +208,7 @@ Devise.setup do |config|
   # config.navigational_formats = ["*/*", :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
