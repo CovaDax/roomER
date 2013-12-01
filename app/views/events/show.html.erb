@@ -10,6 +10,11 @@
 </p>
 
 <p>
+  <b>Guests:</b>
+  <%= @event.numAttendees %>
+</p>
+
+<p>
   <b>Start at:</b>
   <%= @event.start_at %>
 </p>
@@ -32,6 +37,8 @@
   <%= @event.approved %>
   <% end %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
