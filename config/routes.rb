@@ -1,12 +1,18 @@
 CalTest::Application.routes.draw do
+
+  devise_for :admins
+
   devise_for :admins
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
   devise_for :models
-  
-  resources :users
+  resources :user, :controller => "user"
+
+  scope "/admin" do
+    resources :users
+  end
   resources :events
   resources :rooms
 
