@@ -1,12 +1,14 @@
-<h1>Listing events</h1>
+
+<h1>Scheduled Events</h1>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Event Name,</th>
     <th>Organization</th>
     <th>Attendees</th>
-    <th>Start at</th>
-    <th>End at</th>
+    <th>Date</th>
+    <th>Starts</th>
+    <th>Ends</th>
     <th>Room</th>
     <th>Approved</th>
     <th></th>
@@ -16,26 +18,26 @@
     <!--at events.where blahblah before each-->
 <% @events.each do |event| %>
   <tr>
+    <td><%= link_to event.name, event %></td>
     <td><%= event.organization %></td>
     <td><%= event.numAttendees %></td>
-    <td><%= event.start_at %></td>
-    <td><%= event.end_at %></td>
-    
+    <td><%= event.start_at.strftime("%A, %b %d,%Y") %></td>
+    <td><%= event.start_at.strftime("%I:%M%p") %></td>
+    <td><%= event.end_at.strftime("%I:%M%p") %></td>
     <td>  
     <% unless event.room.nil? %>
+    	<%= event.room.name %>
 	    <% end %>
 	</td>
-    <td>  
-    <%= event.approved %>
-	</td>
+    <td><%= event.approved %></td>
 
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	 <% if user_signed_in? %>
+		 <td><%= link_to 'Edit', edit_event_path(event) %></td>
+		 <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Event', new_event_path %>
