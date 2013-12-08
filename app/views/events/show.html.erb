@@ -1,32 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @event.name %>
-</p>
-<p>
-  <b>Organization:</b>
+  <b>Event</b><br/>
+  <%= @event.name %>, 
   <%= @event.organization %>
 </p>
 
 <p>
-  <b>Start at:</b>
-  <%= @event.start_at %>
+  <b>Date:</b><br/>
+<%= @event.start_at.strftime("%m/%d/%Y") %>
 </p>
 
 <p>
-  <b>End at:</b>
-  <%= @event.end_at %>
+	<b>Time:</b><br/>
+  <%= @event.start_at.strftime("%I:%M%p") %> – <%= @event.end_at.strftime("%I:%M%p")  %>
 </p>
 
 <p>
-  <b>Room:</b>
+  <b>Room:</b><br/>
 	<% unless @event.room.nil? %>
         <%= @event.room.name %>
     <% end %>
 </p>
 
+<p>
+	<b>Attendees:</b><br/>
+	<%= @event.numAttends %>
+</p>
 
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+
+<% if user_signed_in? %>
+	<%= link_to 'Edit this Event', edit_event_path(@event) %> |
+<% end %>
+<%= link_to 'List Events', events_path %>

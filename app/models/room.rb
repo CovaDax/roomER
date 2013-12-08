@@ -11,7 +11,7 @@ class Room < ActiveRecord::Base
   
   
   def choiceName   #concatenates room, number, & maxOccucpancy
-  		#[building, number, '   <', maxOccupancy, '>'].join(' ')
+  		#[building, number, '   <', maxOccupancy, '>'].join(' ') #join doesn't honor spaces
   		"#{self.building} #{self.number}:   <holds #{self.maxOccupancy}>"
   end
 
