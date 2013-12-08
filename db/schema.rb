@@ -11,9 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20131201090043) do
-=======
 ActiveRecord::Schema.define(:version => 20131208011241) do
 
   create_table "admins", :force => true do |t|
@@ -52,7 +49,6 @@ ActiveRecord::Schema.define(:version => 20131208011241) do
 
   add_index "controllers", ["email"], :name => "index_controllers_on_email", :unique => true
   add_index "controllers", ["reset_password_token"], :name => "index_controllers_on_reset_password_token", :unique => true
->>>>>>> multi
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -62,16 +58,13 @@ ActiveRecord::Schema.define(:version => 20131208011241) do
     t.datetime "updated_at",   :null => false
     t.string   "organization"
     t.integer  "room_id"
-<<<<<<< HEAD
-    t.boolean  "approved"
-    t.integer  "numAttendees"
-=======
     t.boolean  "validated"
     t.integer  "numAttends"
     t.string   "contactName"
     t.string   "email"
     t.string   "eventName"
->>>>>>> multi
+    t.boolean  "approved"
+    t.integer  "numAttendees"
   end
 
   create_table "models", :force => true do |t|

@@ -1,15 +1,4 @@
 class Event < ActiveRecord::Base
-<<<<<<< HEAD
-  attr_accessible :end_at, :name, :start_at, :organization, #:room, 
-  :room_id, :approved, :numAttendees
-  has_event_calendar
-  #has_one :room      #which is better, has one or belongs to?
-  belongs_to :room
-  
-  validates :name, :organization, :room_id,  presence: true
-  validates :numAttendees, :presence => { :message => "cannot be empty"}
-  validates :numAttendees, :inclusion => { :in => 1..300, :message => "less than 300 please." }  
-=======
   attr_accessible :end_at, :name, :start_at, :organization, :room_id, :contactName, :email, :numAttends, :eventName
   attr_writer :current_step
   has_event_calendar
@@ -53,5 +42,4 @@ class Event < ActiveRecord::Base
       valid?
     end
   end
->>>>>>> multi
 end
