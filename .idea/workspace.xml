@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49eed830-eb8a-47f8-a9d3-56a434d84cb8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20131207210641_add_validation_to_event.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20131207212637_add_number_of_people_to_event.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/events/_first_step.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/events/_second_step.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/events/_third_step.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/events/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/events/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/event.rb" afterPath="$PROJECT_DIR$/app/models/event.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/events_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/events_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/events/index.html.erb" afterPath="$PROJECT_DIR$/app/views/events/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/rooms/index.html.erb" afterPath="$PROJECT_DIR$/app/views/rooms/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/events/new.html.erb" afterPath="$PROJECT_DIR$/app/views/events/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/room.rb" afterPath="$PROJECT_DIR$/app/models/room.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/rooms_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/rooms_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="49eed830-eb8a-47f8-a9d3-56a434d84cb8" name="Default" comment="" />
     <ignored path="calendar_test.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,7 +39,7 @@
       <file leaf-file-name="_third_step.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/events/_third_step.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="93" selection-start="160" selection-end="160" vertical-scroll-proportion="0.06137184" vertical-offset="0" max-vertical-offset="554">
+            <state line="2" column="73" selection-start="140" selection-end="140" vertical-scroll-proportion="0.06137184" vertical-offset="0" max-vertical-offset="554">
               <folding />
             </state>
           </provider>
@@ -64,7 +48,7 @@
       <file leaf-file-name="room.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/room.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="42" selection-start="61" selection-end="73" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+            <state line="3" column="2" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
               <folding />
             </state>
           </provider>
@@ -987,14 +971,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/room.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="42" selection-start="61" selection-end="73" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+        <state line="3" column="2" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/events/_third_step.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="93" selection-start="160" selection-end="160" vertical-scroll-proportion="0.06137184" vertical-offset="0" max-vertical-offset="554">
+        <state line="2" column="73" selection-start="140" selection-end="140" vertical-scroll-proportion="0.06137184" vertical-offset="0" max-vertical-offset="554">
           <folding />
         </state>
       </provider>
