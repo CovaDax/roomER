@@ -7,6 +7,7 @@ class Room < ActiveRecord::Base
 	
 	def name		#this concatenates and returns as :name
   		[building, number].join(' ')
-	end
+  end
+
 
 end

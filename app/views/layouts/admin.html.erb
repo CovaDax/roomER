@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CalTest</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container">
+				<ul>
+					<li class="brand"><%= link_to "Calendar", root_path %></li>
+				</ul>
+				<ul class="nav">
+					<li><%= link_to "View Calendar", calendar_path %></li>
+					<li><%= link_to "New Event", new_event_path %></li>
+				</ul>
+				<ul class="nav pull-right">
+					<% if user_signed_in? %>
+						Logged in as <strong><%= current_user.email %></strong>.
+                        <%= link_to "Add Room", new_room_path, :class => 'navbar-link'  %> |
+                        <%= link_to "Create New User", new_user_registration_path, :class => 'navbar-link'  %> |
+                        <%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %> |
+						<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+					<% else %>|
+						<%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+<% if notice %>
+  <p class="alert alert-notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-error"><%= alert %></p>
+<% end %>
+<%= yield %>
+
+</body>
+</html>

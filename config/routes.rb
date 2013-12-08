@@ -1,9 +1,20 @@
 CalTest::Application.routes.draw do
-  devise_for :models
 
+  devise_for :admins
+
+  devise_for :admins
+  devise_for :users do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
+  devise_for :models
+  resources :user, :controller => "user"
+
+  scope "/admin" do
+    resources :users
+  end
   resources :events
   resources :rooms
-
 
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 

@@ -1,5 +1,21 @@
 <h1>New event</h1>
 
-<%= render 'form' %>
+<div class="container">
+  <%= form_for(@event) do |f| %>
+      <% if @event.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-<%= link_to 'Back', events_path %>
+            <ul>
+              <% @event.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <%= render "#{@event.current_step}_step", :f => f %>
+        <%= f.submit "Continue" %>
+        <%= f.submit "Back", :name => "back_button" unless @event.first_step? %>
+  <% end %>
+</div>
