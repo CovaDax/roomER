@@ -8,6 +8,12 @@ class Room < ActiveRecord::Base
 	def name		#this concatenates and returns as :name
   		[building, number].join(' ')
   end
+  
+  
+  def choiceName   #concatenates room, number, & maxOccucpancy
+  		#[building, number, '   <', maxOccupancy, '>'].join(' ')
+  		"#{self.building} #{self.number}:   <holds #{self.maxOccupancy}>"
+  end
 
 
 end
