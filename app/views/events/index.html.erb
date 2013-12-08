@@ -14,14 +14,12 @@
 
 <% @events.each do |event| %>
   <tr>
-    <td><%= event.name %></td>
     <td><%= event.organization %></td>
     <td><%= event.start_at %></td>
     <td><%= event.end_at %></td>
     
     <td>  
     <% unless event.room.nil? %>
-    <%= event.room.name %>
 	    <% end %>
 	</td>
 

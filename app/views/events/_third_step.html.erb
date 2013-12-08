@@ -1,0 +1,5 @@
+        <div class="field">
+          <%= f.label :room_id %><br/>
+          <%= f.collection_select :room_id, Room.where('maxOccupancy >= ?', @event.numAttends),
+                                  :id, :name, {:prompt => 'select room'} %>
+        </div>

@@ -24,12 +24,14 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
-    @event = Event.new
+    session[:event_params] ||= {}
+    @event = Event.new(session[:event_params])
+    @event.current_step = session[:event_step]
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @event }
-    end
+#    respond_to do |format|
+#      format.html # new.html.erb
+#      format.json { render json: @event }
+#    end
   end
 
   # GET /events/1/edit
@@ -39,18 +41,40 @@ class EventsController < ApplicationController
 
   # POST /events
   # POST /events.json
+#  def create
+#    @event = Event.new(params[:event])
+#
+#    respond_to do |format|
+#      if @event.save
+#        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+#        format.json { render json: @event, status: :created, location: @event }
+#      else
+#        format.html { render action: "new" }
+#        format.json { render json: @event.errors, status: :unprocessable_entity }
+#      end
+#    end
+#  end
   def create
-    @event = Event.new(params[:event])
-
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render json: @event, status: :created, location: @event }
+    session[:event_params].deep_merge!(params[:event]) if params[:event]
+    @event = Event.new(session[:event_params])
+    @event.current_step = session[:event_step]
+    if @event.valid?
+      if params[:back_button]
+        @event.previous_step
+      elsif @event.last_step?
+        @event.save if @event.all_valid?
       else
-        format.html { render action: "new" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        @event.next_step
       end
+      session[:event_step]=@event.current_step
     end
+      if @event.new_record?
+        render "new"
+      else
+        session[:event_step]=session[:event_params] = nil
+        flash[:notice] = "Event Submitted"
+        redirect_to @event
+      end
   end
 
   # PUT /events/1

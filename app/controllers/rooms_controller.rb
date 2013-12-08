@@ -3,7 +3,6 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     @rooms = Room.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @rooms }
