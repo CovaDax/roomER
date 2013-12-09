@@ -6,6 +6,15 @@ class Event < ActiveRecord::Base
   belongs_to :room
   validates_presence_of :name,:organization,:numAttends, :if => lambda{|o| o.current_step == "first"}
   validates :numAttends, :numericality => {:greater_than => 0}
+  validate :sensible_datetime?
+  
+  
+  def sensible_datetime?
+  if self.start_at > self.end_at
+      errors.add(:ends_at, 'must be after start time')
+    end
+  end
+  
 
 
   def steps
