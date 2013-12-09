@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :end_at, :name, :start_at, :organization, :room_id, :contactName, :email, :numAttends, :eventName
+  attr_accessible :end_at, :name, :start_at, :organization, :room_id, :contactName, :email, :numAttends, :eventName, :approved
   attr_writer :current_step
   has_event_calendar
   #has_one :room      #which is better, has one or belongs to?
