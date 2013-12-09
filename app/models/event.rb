@@ -6,7 +6,8 @@ class Event < ActiveRecord::Base
   belongs_to :room
   validates_presence_of :name,:organization,:numAttends, :if => lambda{|o| o.current_step == "first"}
   validates :numAttends, :numericality => {:greater_than => 0}
-  validate :sensible_datetime?
+  #validate :sensible_datetime?  Does not work with MultiStep form
+  
   
   
   def sensible_datetime?
