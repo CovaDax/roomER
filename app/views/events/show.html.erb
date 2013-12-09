@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Event Details</h2>
 <p>
-  <b>Event</b><br/>
+  <b>Event:</b> 
   <%= @event.name %>, 
   <%= @event.organization %>
 </p>
@@ -12,21 +13,28 @@
 </p>
 
 <p>
-  <b>Date:</b><br/>
-<%= @event.start_at.strftime("%m/%d/%Y") %>
+  <b>Date: </b>
+<%= @event.start_at.strftime("%A, %m/%d/%Y") %>
 </p>
 
 <p>
-	<b>Time:</b><br/>
+	<b>Time:</b>
   <%= @event.start_at.strftime("%I:%M%p") %> – <%= @event.end_at.strftime("%I:%M%p")  %>
 </p>
 
 <p>
-  <b>Room:</b><br/>
+  <b>Room:</b>
 	<% unless @event.room.nil? %>
         <%= @event.room.name %>
     <% end %>
 </p>
+
+<p>
+  <b>Contact Info:</b><br/>
+	<%= @event.contactName %><br/>
+	<%= @event.contactEmail %><br/>
+	<%= @event.contactPhone %>
+	</p>
 
 <p>
   <b>Notes:</b><br/>

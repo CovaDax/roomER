@@ -1,6 +1,8 @@
       <div class="field">
-        <%= f.label :start_at %><br />
-        <%= f.datetime_select :start_at, :order => [:month, :day, :hour, :minute], :minute_step => 15, :discard_seconds => true %>
-        <%= f.label :end_at %><br />
-        <%= f.datetime_select :end_at, :order => [:month, :day, :hour, :minute], :minute_step => 15, :discard_seconds => true %>
+      <h3>Event Timeframe</h3>
+        <%= f.label :start_at %>
+        <%= f.datetime_select :start_at, :order => [:month, :day, :hour, :minute], :minute_step => 15, :discard_seconds => true %><br />
+        
+        <%= f.label :end_at %>
+        <%= f.datetime_select :end_at, :order => [:month, :day, :hour, :minute], :minute_step => 15, :discard_seconds => true %><br/><br/>
       </div>

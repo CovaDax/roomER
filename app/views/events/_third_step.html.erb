@@ -1,10 +1,30 @@
         <div class="field">
-          <%= f.label :room_id %><br/>
+          <b>Preferred Space:</b> If you are unsure, describe in the notes section the type of meeting space you need.<br/>
           <%= f.collection_select :room_id, Room.where('maxOccupancy >= ?', @event.numAttends),
-                                  :id, :choiceName, {:prompt => 'select room'} %>
+                                  :id, :choiceName, {:prompt => 'select room'} %><br/><br/>
         </div>
         
         <div class="field">
-        	<%= f.label :notes %><br/>
-        	<%= f.text_area :notes  %>
+        	<%= f.label :notes %>
+        	<%= f.text_area :notes  %><br/><br/>
         </div>
+
+		  <div class="field">
+			<b>Contact Name:</b> (First & Last)<br/>
+			<%= f.text_field :contactName %><br/<br/>
+		  </div>
+		  
+		  <div class="field">
+		  <b>Contact Email:</b> <br/>
+			<%= f.email_field :contactEmail %><br/<br/>
+		  
+		  </div>
+		  
+		  <div class="field">
+		  <b>Contact Phone:</b> <br/>
+		  <%= f.telephone_field :contactPhone %><br/><br/>
+		  </div>
+		  
+		  
+		  
+		  

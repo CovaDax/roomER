@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131209004958) do
+ActiveRecord::Schema.define(:version => 20131209121522) do
 
   create_table "Rooms", :force => true do |t|
     t.string   "building"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20131209004958) do
     t.string   "email"
     t.string   "eventName"
     t.text     "notes"
+    t.string   "contactPhone"
+    t.string   "contactEmail"
   end
 
   create_table "models", :force => true do |t|

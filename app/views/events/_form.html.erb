@@ -14,14 +14,16 @@
 
     <div class="field">
       <%= f.label "Event Name" %>
-      <%= f.text_field :name %><br /><br />
-    
+      <%= f.text_field :name %><br />
       <%= f.label "Organization" %>
-      <%= f.text_field :organization %><br /><br />
+      <%= f.text_field :organization %><br />
     
       <%= f.label "number of guests" %>
-      <%= f.text_field :numAttends %><br /><br />
-    
+      <%= f.text_field :numAttends %>
+      <br/>
+	</div>
+   
+   <div> 
       <%= f.label :start_at %>
       <%= f.datetime_select :start_at, :order => [:month, :day, :hour, :minute], :minute_step => 15 , :discard_seconds => true %>
    	<br/>
@@ -29,16 +31,26 @@
       <%= f.datetime_select :end_at, :order => [:month, :day, :hour, :minute], :minute_step => 15 , :discard_seconds => true %>
       <br/><br/>
     </div>
+
     <div class="field">    
-    <%= f.label :room_id %>
-	 <%= f.collection_select :room_id, Room.all, :id, :name, {:prompt => 'select room'} %><br /><br />
+	    <%= f.label :room_id %>
+		 <%= f.collection_select :room_id, Room.all, :id, :name, {:prompt => 'select room'} %><br /><br />
 	 </div>
 	 
-	 <div>
+    <div class="field">    
+	    Contact Name<br/>
+		 <%= f.text_field :contactName %><br/>
+		 Contact Email<br/>
+		 <%= f.email_field :contactEmail %><br/>
+		 Contact Phone<br/>
+		 <%= f.phone_field :contactPhone %><br/>
+		 <br/>
+	 </div>
+
 	 <div class="field">
-	 <%= f.label :notes %>
-	 <%= f.text_area :notes %>
-	 <br/>
+		 <%= f.label :notes %>
+		 <%= f.text_area :notes %>
+		 <br/>
 	 </div>
 	 
 	 
