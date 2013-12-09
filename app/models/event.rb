@@ -8,10 +8,19 @@ class Event < ActiveRecord::Base
   validates :numAttends, :numericality => {:greater_than => 0}, :if => lambda{|o| o.current_step == "first"}
   #validate :sensible_datetime?  Does not work with MultiStep form
   validates_presence_of :contactName, :contactPhone, :if => lambda{|o| o.current_step == "fourth"}
+  
   validates :contactEmail,   
             :presence => true,   
             :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }   ,
          	:if  => lambda{|o| o.current_step == "fourth"}
+
+  validates_format_of :contactPhone,
+      :message => "must be a valid telephone number.",
+      :with => /^[\(\)0-9\- \+\.]{10,20} *[extension\.]{0,9} *[0-9]{0,5}$/,
+          	:if  => lambda{|o| o.current_step == "fourth"}
+     
+
+
   
   def sensible_datetime?
   if self.start_at > self.end_at
