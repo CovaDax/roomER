@@ -13,24 +13,24 @@
     <% end %>
 
     <div class="field">
-      <%= f.label "Event Name" %><br />
-      <%= f.text_field :name %>
+      <%= f.label "Event Name" %>
+      <%= f.text_field :name %><br /><br />
     
-      <%= f.label "Organization" %><br />
-      <%= f.text_field :organization %>
+      <%= f.label "Organization" %>
+      <%= f.text_field :organization %><br /><br />
     
-      <%= f.label "number of guests" %><br />
-      <%= f.text_field :numAttendees %>
+      <%= f.label "number of guests" %>
+      <%= f.text_field :numAttendees %><br /><br />
     
-      <%= f.label :start_at %><br />
-      <%= f.datetime_select :start_at %>
+      <%= f.label :start_at %>
+      <%= f.datetime_select :start_at %><br /><br />
     
-      <%= f.label :end_at %><br />
-      <%= f.datetime_select :end_at %>
+      <%= f.label :end_at %>
+      <%= f.datetime_select :end_at %><br /><br />
     </div>
     <div class="field">    
-    <%= f.label :room_id %><br />
-	 <%= f.collection_select :room_id, Room.all, :id, :name, {:prompt => 'select room'} %>
+    <%= f.label :room_id %>
+	 <%= f.collection_select :room_id, Room.all, :id, :name, {:prompt => 'select room'} %><br /><br />
 	 </div>
 	 
     <div class="field">    
