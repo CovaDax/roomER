@@ -6,9 +6,9 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'devise'
-gem 'simple_form'
-gem 'cancan'
+gem 'devise' # handels the admin account
+gem 'simple_form' # makes the forms easier to read
+gem 'cancan' # used if multi-level admins were necessary
 
 
 # Gems used only for assets and not required

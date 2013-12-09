@@ -13,36 +13,38 @@
     <% end %>
 
     <div class="field">
-      <%= f.label "Event Name" %><br />
-      <%= f.text_field :name %>
+      <%= f.label "Event Name" %>
+      <%= f.text_field :name %><br /><br />
     
-      <%= f.label "Organization" %><br />
-      <%= f.text_field :organization %>
+      <%= f.label "Organization" %>
+      <%= f.text_field :organization %><br /><br />
     
-      <%= f.label "number of guests" %><br />
-      <%= f.text_field :numAttends %>
+      <%= f.label "number of guests" %>
+      <%= f.text_field :numAttends %><br /><br />
     
-      <%= f.label :start_at %><br />
+      <%= f.label :start_at %>
       <%= f.datetime_select :start_at, :order => [:month, :day, :hour, :minute], :minute_step => 15 , :discard_seconds => true %>
-   
-      <%= f.label :end_at %><br />
+   	<br/>
+      <%= f.label :end_at %>
       <%= f.datetime_select :end_at, :order => [:month, :day, :hour, :minute], :minute_step => 15 , :discard_seconds => true %>
+      <br/><br/>
     </div>
     <div class="field">    
-    <%= f.label :room_id %><br />
-	 <%= f.collection_select :room_id, Room.all, :id, :name, {:prompt => 'select room'} %>
+    <%= f.label :room_id %>
+	 <%= f.collection_select :room_id, Room.all, :id, :name, {:prompt => 'select room'} %><br /><br />
 	 </div>
 	 
 	 <div>
 	 <div class="field">
 	 <%= f.label :notes %>
 	 <%= f.text_area :notes %>
+	 <br/>
 	 </div>
 	 
 	 
 	 
     <div class="field">    
-    <%= f.label :approved %> 
+    <%=  "Approved" %> 
     <%= f.check_box :approved %><br />
 	 </div>	 
 	 <br />
