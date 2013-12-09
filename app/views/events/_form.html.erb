@@ -33,9 +33,17 @@
 	 <%= f.collection_select :room_id, Room.all, :id, :name, {:prompt => 'select room'} %>
 	 </div>
 	 
+	 <div>
+	 <div class="field">
+	 <%= f.label :notes %>
+	 <%= f.text_area :notes %>
+	 </div>
+	 
+	 
+	 
     <div class="field">    
-    <%= f.label :approved %>
-	 <%= f.check_box :approved %><br />
+    <%= f.label :approved %> 
+    <%= f.check_box :approved %><br />
 	 </div>	 
 	 <br />
 	 
