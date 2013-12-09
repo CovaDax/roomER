@@ -1,11 +1,21 @@
 class Event < ActiveRecord::Base
-  attr_accessible :end_at, :name, :start_at, :organization, :room_id, :contactName, :email, :numAttends, :eventName
+  attr_accessible :end_at, :name, :start_at, :organization, :room_id, :contactName, :email, :numAttends, :eventName, :approved, :notes
   attr_writer :current_step
   has_event_calendar
   #has_one :room      #which is better, has one or belongs to?
   belongs_to :room
   validates_presence_of :name,:organization,:numAttends, :if => lambda{|o| o.current_step == "first"}
   validates :numAttends, :numericality => {:greater_than => 0}
+  #validate :sensible_datetime?  Does not work with MultiStep form
+  
+  
+  
+  def sensible_datetime?
+  if self.start_at > self.end_at
+      errors.add(:ends_at, 'must be after start time')
+    end
+  end
+  
 
 
   def steps

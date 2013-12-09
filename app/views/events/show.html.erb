@@ -8,7 +8,7 @@
 
 <p>
   <b>Guests:</b>
-  <%= @event.numAttendees %>
+  <%= @event.numAttends %>
 </p>
 
 <p>
@@ -26,6 +26,12 @@
 	<% unless @event.room.nil? %>
         <%= @event.room.name %>
     <% end %>
+</p>
+
+<p>
+  <b>Notes:</b><br/>
+  <%= @event.notes %>
+
 </p>
 
 <p>
