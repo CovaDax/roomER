@@ -6,7 +6,6 @@
 		  <div class="field">
 		  <b>Contact Email:</b> <br/>
 			<%= f.email_field :contactEmail %><br/<br/>
-		  
 		  </div>
 		  
 		  <div class="field">
@@ -14,6 +13,13 @@
 		  <%= f.telephone_field :contactPhone %><br/><br/>
 		  </div>
 		  
-		  
+		  <div class="notice">
+			  <p>Reservation requests are processed on a first-come, first-served basis. You should receive an email from Campus Reservations within 2 business days. Requests may be delayed if the information provided is incomplete or incorrect. Reservations are subject to availability. Some dates may be unavailable due to University closures, including holidays and school breaks. Some times may not limited due to the hours of operation for a particular location. You may request classroom space at any time; however, classrooms cannot be assigned during the first three weeks of school and until after the add/drop date for each semester.</p>
+			  <p><b>NOTICE:</b> You cannot hold an event without a space reservation. Please do not advertise, promote, or contract services for your proposed event until you have recieved an email confirmation from Campus Reservations. Registered Student Organizations (RSO) must submit an Event Reservation 14 calendar days prior to their event day.</p>
+		  </div>
+		  		  
+		  <div class="field">
+			  <%= f.check_box :terms_and_conditions %> <%= f.label "I have read and agree to the terms and conditions for reservations." %><br/>
+		  </div>
 		  
 		  

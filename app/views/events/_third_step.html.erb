@@ -1,5 +1,5 @@
         <div class="field">
-          <b>Preferred Space:</b> If you are unsure, describe in the notes section the type of meeting space you need.<br/>
+          <b>Preferred Space:</b> If you are unsure, describe the type of meeting space you need in the notes section below.<br/>
           <%= f.collection_select :room_id, Room.where('maxOccupancy >= ?', @event.numAttends),
                                   :id, :choiceName, {:prompt => 'select room'} %><br/><br/>
         </div>

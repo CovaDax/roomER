@@ -4,6 +4,7 @@ class Event < ActiveRecord::Base
   has_event_calendar
   #has_one :room      #which is better, has one or belongs to?
   belongs_to :room
+
   validates_presence_of :name,:organization,:numAttends, :if => lambda{|o| o.current_step == "first"}
   validates :numAttends, :numericality => {:greater_than => 0}, :if => lambda{|o| o.current_step == "first"}
   #validate :sensible_datetime?  Does not work with MultiStep form
@@ -19,7 +20,9 @@ class Event < ActiveRecord::Base
       :with => /^[\(\)0-9\- \+\.]{10,20} *[extension\.]{0,9} *[0-9]{0,5}$/,
           	:if  => lambda{|o| o.current_step == "fourth"}
      
-
+	attr_accessible :terms_and_conditions
+	validates_acceptance_of :terms_and_conditions, 
+	:on => :create, :message => "must be accepted."
 
   
   def sensible_datetime?
