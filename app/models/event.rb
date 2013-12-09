@@ -5,7 +5,8 @@ class Event < ActiveRecord::Base
   #has_one :room      #which is better, has one or belongs to?
   belongs_to :room
   validates_presence_of :name,:organization,:numAttends, :if => lambda{|o| o.current_step == "first"}
-  validates :numAttends, :numericality => {:greater_than => 0}
+  validates :numAttends, :numericality => {:greater_than => 0}, :if => lambda{|o| o.current_step == "first"}
+  validates_presence_of :contactName, :contactEmail, :contactPhone, :if => lambda{|o| o.current_step == "fourth"}
   #validate :sensible_datetime?  Does not work with MultiStep form
   
   
@@ -19,7 +20,7 @@ class Event < ActiveRecord::Base
 
 
   def steps
-    %w[first second third]
+    %w[first second third fourth]
   end
 
   def current_step
