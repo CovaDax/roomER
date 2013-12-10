@@ -104,4 +104,15 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def fake
+    @event = Event.find(params[:id])
+
+    respond_to do |format|
+      format.html # fake.html.erb
+      format.json { render json: @event }
+    end
+  end
+
 end

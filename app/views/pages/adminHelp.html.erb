@@ -49,8 +49,7 @@
 			<li>On the bottom of the event edit page, you will be able to select between pending, approved, denied, or canceled</li>
 			<li>Choose the option that best fits your desired outcome</li>
 			<li>Click the "Update Event" button on the bottom of the page</li>
-			<p>Choosing "approved" will make the event show up on the calendar.</p>
-		</ol>
+						<p><B>NOTE:</B> Choosing "approved" will make the event show up on the calendar.</p>		</ol>
 		<div align="center">
 			<%= link_to "List Events", events_path, class: "btn btn-primary btn-large" %>
 		</div>
@@ -63,4 +62,16 @@
 		</div>
 	</div>
 
+	<div class="hero-unit">
+		<h3 align="center">Create & Edit Rooms</h3>
+		<ol>
+			<li>Click on the “New Room” tab located at the top of the screen or Click the button at the end of this instruction</li>
+			<li>Provide the name of Building, and the Identifying Room Number or name.</li>
+			<li>Please list the maximum room occupancy based on the legal fire rating.</li>
+			<p><b>NOTE:</b> To List existing rooms, click on the list rooms button at the bottom of the form.</p>
+		</ol>
+		<div align="center">
+			<%= link_to "New Room", new_room_path, class: "btn btn-primary btn-large" %>
+		</div>
+	</div>
 </div>

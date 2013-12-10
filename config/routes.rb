@@ -5,7 +5,7 @@ CalTest::Application.routes.draw do
     delete '/users/sign_out' => 'devise/sessions#destroy'
   end
   
-  
+  match '/fake' => 'events#fake'
 
   devise_for :models
   resources :user, :controller => "user"
