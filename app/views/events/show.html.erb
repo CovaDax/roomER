@@ -43,11 +43,9 @@
 </p>
 
 <p>
-  <b>Approved:</b>
-	<% unless @event.room.nil? %>
-  <%= @event.approved %>
-  <% end %>
+  <b>Status:</b> <%= @event.status %>
 </p>
+
 
 
 

@@ -10,7 +10,7 @@
     <th>Starts</th>
     <th>Ends</th>
     <th>Room</th>
-    <th>Approved</th>
+    <th>Status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -29,7 +29,7 @@
     	<%= event.room.name %>
 	    <% end %>
 	</td>
-    <td><%= event.approved %></td>
+    <td><%= event.status %></td>
 
 	 <% if user_signed_in? %>
 		 <td><%= link_to 'Edit', edit_event_path(event) %></td>
