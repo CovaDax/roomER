@@ -21,5 +21,6 @@
 		  <div class="field">
 			  <%= f.check_box :terms_and_conditions %> <%= f.label "I have read and agree to the terms and conditions for reservations." %><br/>
 		  </div>
-		  
+
+		 <%= f.hidden_field :status, :value => 'pending' %>		  
 		  

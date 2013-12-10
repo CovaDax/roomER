@@ -53,13 +53,11 @@
 		 <br/>
 	 </div>
 	 
-	 
-	 
+
     <div class="field">    
-    <%=  "Approved" %> 
-    <%= f.check_box :approved %><br />
-	 </div>	 
-	 <br />
+	    <%= f.label :status %>
+	    <%= f.collection_select :status, Event::STATUSES, :to_s, :to_s %><br /><br />
+	 </div>
 	 
     <div class="actions">
       <%= f.submit %>

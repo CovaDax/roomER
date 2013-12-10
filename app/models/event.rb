@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
-  attr_accessible :end_at, :name, :start_at, :organization, :room_id, :contactName, :email, :numAttends, :eventName, :approved, :notes, :contactPhone, :contactEmail
+  attr_accessible :name, :organization, :start_at, :end_at, :room_id, :contactName, :email, :numAttends, :eventName, :approved, :notes, :status
+	#warning do not remove email. why? dunno something is tagged to it.
   attr_writer :current_step
   has_event_calendar
   #has_one :room      #which is better, has one or belongs to?
@@ -10,11 +11,13 @@ class Event < ActiveRecord::Base
   #validate :sensible_datetime?  Does not work with MultiStep form
   validates_presence_of :contactName, :contactPhone, :if => lambda{|o| o.current_step == "fourth"}
   
+  attr_accessible  :contactEmail
   validates :contactEmail,   
             :presence => true,   
             :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }   ,
          	:if  => lambda{|o| o.current_step == "fourth"}
 
+  attr_accessible  :contactPhone
   validates_format_of :contactPhone,
       :message => "must be a valid telephone number.",
       :with => /^[\(\)0-9\- \+\.]{10,20} *[extension\.]{0,9} *[0-9]{0,5}$/,
@@ -32,6 +35,15 @@ class Event < ActiveRecord::Base
   end
 
 
+  module Status
+    PENDING = 'pending'
+    APPROVED = 'approved'
+    DENIED = 'denied'
+    CANCELED  = 'canceled'
+  end
+
+STATUSES = [ Status::PENDING, Status::APPROVED, Status::DENIED, Status::CANCELED ]
+  validates :status, :inclusion => { :in => STATUSES, :message => "%{value} is not a valid status value" },  :presence => true, :if => lambda{|o| o.current_step == "fourth"}
   
 
 
