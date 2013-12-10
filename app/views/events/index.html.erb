@@ -1,6 +1,4 @@
-
 <h1>Scheduled Events</h1>
-
 <table>
   <tr>
     <th>Event Name,</th>
@@ -16,27 +14,44 @@
     <th></th>
   </tr>
     <!--at events.where blahblah before each-->
-<% @events.each do |event| %>
-  <tr>
-    <td><%= link_to event.name, event %></td>
-    <td><%= event.organization %></td>
-    <td><%= event.numAttends %></td>
-    <td><%= event.start_at.strftime("%A, %b %d,%Y") %></td>
-    <td><%= event.start_at.strftime("%I:%M%p") %></td>
-    <td><%= event.end_at.strftime("%I:%M%p") %></td>
-    <td>  
-    <% unless event.room.nil? %>
-    	<%= event.room.name %>
-	    <% end %>
-	</td>
-    <td><%= event.status %></td>
+  <% if user_signed_in? %>
+   <% @events.each do |event| %>
+    <tr>
+        <td><%= link_to event.name, event %></td>
+        <td><%= event.organization %></td>
+        <td><%= event.numAttends %></td>
+        <td><%= event.start_at.strftime("%A, %b %d,%Y") %></td>
+        <td><%= event.start_at.strftime("%I:%M%p") %></td>
+        <td><%= event.end_at.strftime("%I:%M%p") %></td>
+        <td>
+          <% unless event.room.nil? %>
+              <%= event.room.name %>
+          <% end %>
+        </td>
+        <td><%= event.status %></td>
+            <td><%= link_to 'Edit', edit_event_path(event) %></td>
+            <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
 
-	 <% if user_signed_in? %>
-		 <td><%= link_to 'Edit', edit_event_path(event) %></td>
-		 <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-  </tr>
-<% end %>
+      <% else %>
+        <% @events = Event.where('status == ? AND start_at > ?', 'approved', DateTime.now.beginning_of_day).all.each do |event| %>
+          <tr>
+            <td><%= link_to event.name, event %></td>
+            <td><%= event.organization %></td>
+            <td><%= event.numAttends %></td>
+            <td><%= event.start_at.strftime("%A, %b %d,%Y") %></td>
+            <td><%= event.start_at.strftime("%I:%M%p") %></td>
+            <td><%= event.end_at.strftime("%I:%M%p") %></td>
+            <td>
+              <% unless event.room.nil? %>
+                  <%= event.room.name %>
+              <% end %>
+            </td>
+            <td><%= event.status %></td>
+          </tr>
+        <% end %>
+  <% end %>
 </table>
 
 <br />
