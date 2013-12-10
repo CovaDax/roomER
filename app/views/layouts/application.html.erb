@@ -13,14 +13,6 @@
 				<ul>
 					<li class="brand pull-left"><%= link_to "roomER", root_path %></li>
 				</ul>
-				<ul class="nav pull-left">
-					<li><%= link_to "View Calendar", calendar_path %></li>
-					<li><%= link_to "New Event", new_event_path %></li>
-					<li><%= link_to "List Events", events_path %></li>
-					<li><%= link_to "Help", userHelp_path %></li>
-					<li><%= link_to "Contact", contact_path %></li>
-					
-				</ul>
 				<ul class="nav pull-right">
 					<% if user_signed_in? %>
 						Logged in as <strong><%= current_user.email %></strong>.
@@ -32,6 +24,18 @@
 					<% else %>|
 						<%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 					<% end %>
+				</ul>
+				<ul class="nav pull-left">
+					<li><%= link_to "View Calendar", calendar_path %></li>
+					<li><%= link_to "New Event", new_event_path %></li>
+					<li><%= link_to "List Events", events_path %></li>
+					<% if user_signed_in? %>
+						<li class="signedIn"><%= link_to "Admin Help", adminHelp_path %></li>
+					<% else %>
+						<li class="signedOut"><%= link_to "Help", userHelp_path %></li>
+						<li><%= link_to "Contact", contact_path %></li>
+					<% end %>
+					
 				</ul>
 			</div>
 		</div>

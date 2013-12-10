@@ -1,38 +1,49 @@
 <div class="page-header">
-	<div class="container">
-		<h1>Welcome to roomER!</h1>
-		<h4>Here you can submit event requests and find events by day and location!</h4>
-		<%= link_to "Let's Get Started", "#", class: "btn" %>
-	</div>
-
-  <h1>Today's Events</h1>
-
-  <table>
-    <tr>
-		<th>Event Name</th>
-		<th>Organization</th>
-		<th>Attendees</th>
-		<th>Date</th>
-		<th>Starts</th>
-		<th>Ends</th>
-		<th>Room</th>
-    </tr>
-
-    <% @events = Event.where('start_at BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).all.each do |event| %>
-  <tr>
-    <td><%= link_to event.name, event %></td>
-    <td><%= event.organization %></td>
-    <td><%= event.numAttends %></td>
-    <td><%= event.start_at.strftime("%A, %b %d,%Y") %></td>
-    <td><%= event.start_at.strftime("%I:%M%p") %></td>
-    <td><%= event.end_at.strftime("%I:%M%p") %></td>
-    <td>  
-    <% unless event.room.nil? %>
-    	<%= event.room.name %>
-	    <% end %>
-	</td>
-    <td><%= event.approved %></td>
+<div class="container">
+	<div class="hero-unit">
+    <% if user_signed_in? %>
+      <h1>Welcome <%= current_user.email %>!</h1>
+      <p>Let's see what events have been submitted and waiting for approval.</p>
+      <%= link_to "Let's Get Started!", events_path, class: "btn btn-primary btn-large" %>
+    <% else %>
+      <h1>Welcome to roomER!</h1>
+      <p>Here you have the ability to make a reservation request, view current events by day, and view additional information about other organizations events.</p>
+      <%= link_to "Create a New Event", new_event_path, class: "btn btn-primary btn-large" %>
     <% end %>
-  </table>
+		</div>
+	</div>
+</div>
+
+  <div class="container">
+    <h1>Today's Events</h1>
+
+    <table>
+      <tr>
+  		<th>Event Name</th>
+  		<th>Organization</th>
+  		<th>Attendees</th>
+  		<th>Date</th>
+  		<th>Starts</th>
+  		<th>Ends</th>
+  		<th>Room</th>
+      </tr>
+
+      <% @events = Event.where('start_at BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).all.each do |event| %>
+    <tr>
+      <td><%= link_to event.name, event %></td>
+      <td><%= event.organization %></td>
+      <td><%= event.numAttends %></td>
+      <td><%= event.start_at.strftime("%A, %b %d,%Y") %></td>
+      <td><%= event.start_at.strftime("%I:%M%p") %></td>
+      <td><%= event.end_at.strftime("%I:%M%p") %></td>
+      <td>  
+      <% unless event.room.nil? %>
+      	<%= event.room.name %>
+  	    <% end %>
+  	</td>
+      <td><%= event.status %></td>
+      <% end %>
+    </table>
+  </div>
 </div>
 

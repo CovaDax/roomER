@@ -1,0 +1,66 @@
+<div class="container">
+	<h1 align="center">How To</h1>
+	<br />
+	<div class="hero-unit">
+		<h3 align="center">Create Event</h3>
+		<ol>
+			<li>Click on the “New Event” tab located at the top of the screen or Click the button at the end of this instruction</li>
+			<li>Provide the name of organization, name of the event and expected number of attendees</li>
+			<li>Select the start and end times of event</li>
+			<li>Select the available rooms that match the criteria and add any notes that are necessary to this event</li>
+			<li>Fill in the event contact information and check the box at the bottom of the page</li>
+		</ol>
+		<div align="center">
+			<%= link_to "New Event", new_event_path, class: "btn btn-primary btn-large" %>
+		</div>
+	</div>
+	<div class="hero-unit">
+		<h3 align="center">Edit a Request</h3>
+		<ol>
+			<li>Click on the “List Events” tab located at the top of the screen or Click the button at the end of this instruction</li>
+			<li>Find the event you are looking to edit</li>
+			<li>Click the "Edit" tab on the right hand side of the event</li>
+			<li>Make changes and click "Update Event" on the bottom of the screen</li>
+		</ol>
+		<div align="center">
+			<%= link_to "List Events", events_path, class: "btn btn-primary btn-large" %>
+		</div>
+	</div>
+	<div class="hero-unit">
+		<h3 align="center">Delete Request or Event</h3>
+		<ol>
+			<li>Click on the “List Events” tab located at the top of the screen or Click the button at the end of this instruction</li>
+			<li>Find the event you are looking to delete</li>
+			<li>Click the "Destroy" tab on the right hand side of the event</li>
+			<li>You will be asked if you "Are you sure?"</li>
+			<li>Select the option that best fits your desire</li>
+			<p><strong>YOU WILL NOT BE ABLE TO RECOVER DELETED EVENTS!</strong></p>
+		</ol>
+		<div align="center">
+			<%= link_to "List Events", events_path, class: "btn btn-primary btn-large" %>
+		</div>
+	</div>
+	<div class="hero-unit">
+		<h3 align="center">Change Status of Event</h3>
+		<ol>
+			<li>Click on the “List Events” tab located at the top of the screen or Click the button at the end of this instruction</li>
+			<li>Find the event you are looking to approve</li>
+			<li>Click the "Edit" tab on the right hand side of the event</li>
+			<li>On the bottom of the event edit page, you will be able to select between pending, approved, denied, or canceled</li>
+			<li>Choose the option that best fits your desired outcome</li>
+			<li>Click the "Update Event" button on the bottom of the page</li>
+			<p>Choosing "approved" will make the event show up on the calendar.</p>
+		</ol>
+		<div align="center">
+			<%= link_to "List Events", events_path, class: "btn btn-primary btn-large" %>
+		</div>
+	</div>
+	<div class="hero-unit">
+		<h3 align="center">Get Event to Show up on Calendar</h3>
+		<p>Follow the instructions in the "Change Status of Event" section. Only the events that have a "Status" of approved will show up on the calendar everything else will not appear on the calendar.</p>
+		<div align="center">
+			<%= link_to "List Events", events_path, class: "btn btn-primary btn-large" %>
+		</div>
+	</div>
+
+</div>
