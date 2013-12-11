@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
-  attr_accessible :name, :organization, :start_at, :end_at, :room_id, :contactName, :email, :numAttends, :eventName, :approved, :notes, :status
+  attr_accessible :name, :organization, :start_at, :end_at, :room_id, :contactName,
+                  :email, :numAttends, :eventName, :approved, :notes, :status
 	#warning do not remove email. why? dunno something is tagged to it.
   attr_writer :current_step
   has_event_calendar
@@ -16,6 +17,9 @@ class Event < ActiveRecord::Base
             :presence => true,   
             :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }   ,
          	:if  => lambda{|o| o.current_step == "fourth"}
+  def approved?
+    status=='approved'
+  end
 
   attr_accessible  :contactPhone
   validates_format_of :contactPhone,
@@ -80,5 +84,9 @@ STATUSES = [ Status::PENDING, Status::APPROVED, Status::DENIED, Status::CANCELED
       self.current_step = step
       valid?
     end
+  end
+
+  def getEmail
+    contactEmail
   end
 end

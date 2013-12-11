@@ -27,11 +27,6 @@ class EventsController < ApplicationController
     session[:event_params] ||= {}
     @event = Event.new(session[:event_params])
     @event.current_step = session[:event_step]
-
-#    respond_to do |format|
-#      format.html # new.html.erb
-#      format.json { render json: @event }
-#    end
   end
 
   # GET /events/1/edit
@@ -39,21 +34,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-  # POST /events
-  # POST /events.json
-#  def create
-#    @event = Event.new(params[:event])
-#
-#    respond_to do |format|
-#      if @event.save
-#        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-#        format.json { render json: @event, status: :created, location: @event }
-#      else
-#        format.html { render action: "new" }
-#        format.json { render json: @event.errors, status: :unprocessable_entity }
-#      end
-#    end
-#  end
   def create
     session[:event_params].deep_merge!(params[:event]) if params[:event]
     @event = Event.new(session[:event_params])
@@ -86,6 +66,8 @@ class EventsController < ApplicationController
       if @event.update_attributes(params[:event])
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
+        # Tell the UserMailer to send a welcome Email after save
+        UserMailer.confirmation_email(@event).deliver
       else
         format.html { render action: "edit" }
         format.json { render json: @event.errors, status: :unprocessable_entity }
