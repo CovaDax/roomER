@@ -1,5 +1,3 @@
-<<<<<<< HEAD
 # Readme
 roomER
 ======
->>>>>>>
